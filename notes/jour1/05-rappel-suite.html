@@ -42,7 +42,18 @@
         let i = (chiffre1 , chiffre2) => chiffre1 + chiffre2;
         console.log(i(1,2));
 
+        function test(b) {
+            console.log("action1");
+            b();
+        }
 
+        // test(function(){
+        //     console.log("callback");
+        // })
+
+        test(() => {
+            console.log("Je suis une arrow function");
+        })
         
     </script>
     
