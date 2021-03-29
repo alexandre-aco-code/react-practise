@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import Premier from "./Premier"; // une fois créé on l'importe dans le parent (ici composant root)
-import Deuxieme from "./Deuxieme"; 
+import Deuxieme from "./Deuxieme";
+import Troisieme from "./Troisieme";
+import Quatrieme from "./Quatrieme";
+import Cinquieme from "./Cinquieme";
+import Sixieme from "./Sixieme";
 
 function App() {
   return (
@@ -10,10 +14,12 @@ function App() {
         <h1>Découverte React</h1>
         <Premier />
         <Deuxieme />
+        <Troisieme />
+        <Quatrieme />
+        <Cinquieme />
+        <Sixieme />
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Bonjour les amis! test
-        </p>
+        <p>Bonjour les amis! test</p>
         <a
           className="App-link"
           href="https://reactjs.org"

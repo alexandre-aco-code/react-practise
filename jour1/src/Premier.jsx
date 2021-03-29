@@ -1,7 +1,7 @@
 // Simple React Snippet
 // imrc
 
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 // cc
 
