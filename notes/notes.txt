@@ -1,0 +1,13 @@
+REACT
+
+29/3
+
+élément de base de React => composant (brique de base de React)
+Chaque composant est autonome.
+
+un Composant => une partie de ce qu'on va voir dans un écran.
+=> Composant menu , composant afficher la liste des articles, composant afficher un article
+
+=> Composant spécial = composant Root => il contient TOUS les autres composants qu'on va voir à lécran
+
+JSX => très pratique et facilement maintenable
