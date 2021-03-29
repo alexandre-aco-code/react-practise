@@ -54,6 +54,75 @@
         test(() => {
             console.log("Je suis une arrow function");
         })
+
+        // créer un tableau
+        let l = [ 1, 2 ,3 ];
+
+        //parcourir un tableau plusieurs techniques
+
+        // for, While, forEach => méthodes classiques
+
+        // méthode sur l'objet array : tableau.forEach( callback )
+        l.forEach(item => console.log(item))
+
+        // idem, map()
+        // le callback en map doit forcément retourner qqch
+
+        let resultat = l.map(item => item);
+        console.log(resultat);
+
+        // avantage de la méthode map(), ca transforme un tableau en un autre
+
+        // exo rapide pour avoir un tableau enrichi
+        // tableau origine [1,2,3]
+        // tableau enrichi par map() ["<li>1</li>", "<li>2</li>", "<li>3</li>"]
+
+        let tableauEnrichi = [1,2,3].map(item => "<li>" + item + "</li>");
+
+        console.log(tableauEnrichi);
+
+        // filter tout mon tableau sauf le 2, et l'enrichir ensuite
+        // programmation fonctionnelle
+
+        let t = [1,2,3].filter(item => { if(item == 2) return item }).map( item => "<p>" + item + "</p>");
+
+        console.log(t);
+
+        // destructuration
+
+        let person = {
+            nom : "Pierre",
+            hello : function(){
+                console.log("bonjour");
+            },
+            salut(){
+                console.log("au revoir");
+            }
+        };
+
+        console.log(person.nom);
+        person.hello();
+
+        let {nom, salut} = person; // équivalent extract en php
+
+        salut();
+        console.log(nom);
+
+        function calcul ( objet ) {
+            let resultat = objet.largeur * objet.hauteur;
+            console.log(resultat);
+        }
+
+        //destructuration
+        function calcul2 ({largeur, hauteur}) {
+            let resultat =largeur * hauteur;
+            console.log(resultat);
+        }
+
+        let o = {largeur : 12, hauteur: 30};
+        calcul2 (o);
+
+
         
     </script>
     
