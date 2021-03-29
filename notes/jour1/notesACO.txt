@@ -1,0 +1,96 @@
+REACT
+
+29/3
+
+# 01. START & PRESENTATION
+
+élément de base de React => composant (brique de base de React)
+Chaque composant est autonome.
+
+un Composant => une partie de ce qu'on va voir dans un écran.
+=> Composant menu , composant afficher la liste des articles, composant afficher un article
+
+=> Composant spécial = composant Root => il contient TOUS les autres composants qu'on va voir à lécran
+
+JSX => très pratique et facilement maintenable
+
+---
+
+import React, { Component } from "react";
+
+class NavBar extends Component {
+  state = {}; // state => données internes du composant facultative
+  render(){} // méthode obligaoire => ce qui est affiché à l'écran
+}
+
+--- 
+
+Angular FRAMEWORK
+React LIBRAIRIES
+
+# 02 INSTALLATION
+
+avoir node.JS
+NPM Node Package Manager, équivalent de Composer en PHP => packagist
+https://www.npmjs.com/package/create-react-app
+
+(pip pour python?)
+
+installer en LOCAL
+npm i create-react-app
+
+installer en GLOBAL
+npm i -g create-react-app
+
+astuce : si tu resaisis la commande, ca te met à jour
+astuce 2 : npm list -g pour voir ce qui est installé en GLOBAL
+
+----------------
+node JS
+npm
+create-react-app
+
+----------------
+
+create-react-app jour1 => installer le projet react
+package.json et yarn.lock (fichiers configs)
+
+cd jour1
+npm start
+
+npm i -g yarn ( si besoin pour mettre yarn )
+
+
+# 03. ARCHITECTURE REACT
+
+node_modules => dépendances projet (pas toucher, uniquement par le terminal)
+
+Dossier public 
+  favicon
+  index.html => div root on la touche pas
+  
+  serveur de préproduction
+  Webpack => permet de "BUNDLEiser" (regrouper) tous les fichiers dans un seul et optimiser et ajout des balises script en dynamique par le serveur webpack.
+
+  images => tout mettre dans le dossier public
+
+  manifest.json => fichier PWA : progressive Web app, permet de transformer un site internet/ application (créé en react) en application mobile
+  => PWA fonctionne que sur Chrome
+  => PWA ne fonctionne plus que Firefox
+
+Dossier SRC ( 99% de notre temps dessus pour créer modifier etc.)
+
+  index.js fait la liaison entre la balise root de public/index.html et src/App.js (composant racine)
+  App.js
+
+React (Angular/Vue/Svelte) => SPA Single Page application
+
+=> Les sites react sont tres performants, très rapides
+
+Attention en JSX mettre ClassName et surtout pas Class car c'est reservé ailleurs
+
+HMR : Hot Module Reload => dès que vous modifiez un fichier dans les composants (App.js par exemple), c'est automatiquement mis à jour dans le navigateur.
+
+UX => User Experience
+DX => Developpement Experience (rendre le codage le plus sympa possible pour le développeur)
+
