@@ -17,7 +17,7 @@ class Cinquieme extends Component {
 
     }
     render() {
-        let { titre, contenu, like } = this.state;
+        let { titre, contenu } = this.state;
         return (
             <article>
                 <h2>{titre}</h2>
