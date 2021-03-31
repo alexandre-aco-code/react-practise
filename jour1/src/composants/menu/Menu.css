@@ -1,0 +1,13 @@
+.menu {
+    display:flex;
+    list-style: none;
+}
+
+.menu li {
+    margin-right:1em;
+}
+
+.navbar {
+    display:flex;
+    align-items: center;
+}
