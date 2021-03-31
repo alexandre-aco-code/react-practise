@@ -1,10 +1,10 @@
-// sfc state less fonctional componant
-import logo from "./logo.png";
-
+// sfc state less fonctional Componant 
+// http://via.placeholder.com/100x50?text=logo
+// import  logo  from "./logo.png" ;
 
 const Logo = () => {
-    return (
-        <img src={logo} alt="" />
+    return ( 
+        <img src="img/societe.png"  alt="" />
     );
 }
 
