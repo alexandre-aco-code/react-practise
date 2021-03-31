@@ -9,6 +9,16 @@
   pointer-events: none;
 }
 
+.articles{
+  display: flex;
+}
+.articles article{
+  border-radius: 5px;
+  border:1px solid black;
+  margin-right: 0.8em;
+  padding: 1em;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -39,6 +49,4 @@
   }
 }
 
-h1 {
-  text-decoration: underline red;
-}
+
