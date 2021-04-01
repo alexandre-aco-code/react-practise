@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import Contact from "../layouts/Contact";
+import Contact from "../contacts/Contact";
 
 class Contacts extends Component {
   state = {
