@@ -9,6 +9,7 @@ import Footer from "./components/layouts/Footer";
 import NotFound from "./components/errors/NotFound";
 import ContactDetail from "./components/contacts/ContactDetail";
 import JSX from "./components/cours/Jsx";
+import FormInput from "./components/forms/FormInput";
 
 class App extends Component {
     render() {
