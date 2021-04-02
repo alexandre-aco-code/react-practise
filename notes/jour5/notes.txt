@@ -1,0 +1,13 @@
+Pour une installation propre 
+1- Nouveau Dossier/Projet :
+create-react-app jour5
+2 – Entrer dans le Nouveau dossier
+cd jour5
+3- Installer Bootstrap
+npm i bootstrap
+4 –installer Axios
+npm i axios
+5 – installer le routeur
+npm i react-router-dom
+6- Démarrer le Projet
+npm start
