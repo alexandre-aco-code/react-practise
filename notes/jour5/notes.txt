@@ -11,3 +11,15 @@ npm i axios
 npm i react-router-dom
 6- Démarrer le Projet
 npm start
+
+git clone https://github.com/Kenshirosan/react-demo.git
+
+git checkout jour4#laurent#jour2
+
+git checkout jour#5laurent#jour3
+
+git branch -a
+
+
+
+•    Découverte api context (un state global appelé store) https://reactjs.org/docs/context.html. On fait une classe provider dans un fichier context.js qui va nous permettre d’avoir un beau state partagé entre composants et un consumer pour utiliser ces données. Pour utiliser les données intelligemment (là ou y’en a besoin) on va créer un consumer  à importer par les classes qui ont besoin.
