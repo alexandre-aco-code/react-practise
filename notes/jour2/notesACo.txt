@@ -1,6 +1,0 @@
-fragment <> </>  ou <fragment></fragment>
-
-npm i react-router-dom
-
-npm i axios
-
