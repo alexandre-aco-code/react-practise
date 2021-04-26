@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Training</title>
+    </head>
+    <body>
+        <script>
+            let arr = [
+                {
+                    match1: { locals: 10, visitors: 15 },
+                    match2: { locals: 42, visitors: 30 },
+                    match3: { locals: 35, visitors: 12 },
+                    match4: { locals: 45, visitors: 75 },
+                    match5: { locals: 65, visitors: 45 },
+                },
+                {
+                    match6: { locals: 10, visitors: 15 },
+                    match7: { locals: 42, visitors: 30 },
+                    match8: { locals: 35, visitors: 12 },
+                    match9: { locals: 45, visitors: 75 },
+                    match10: { locals: 65, visitors: 45 },
+                },
+			];
+
+            function reducer(accumulator, currentValue) {
+                const obj = {
+                    ...accumulator,
+                    ...currentValue,
+                };
+
+                return obj;
+            }
+
+            function reducer2(accumulator, currentValue) {
+                const obj = {};
+
+                return Object.assign(obj, accumulator, currentValue);
+            }
+
+            const obj = arr.reduce(reducer);
+
+            const obj2 = arr.reduce(reducer2);
+
+            for (const key in obj2) {
+                console.log(`${key}: ${obj[key].locals} et ${obj[key].visitors}`);
+            }
+
+
+			const scores = [
+                { locals: 10, visitors: 15 },
+                { locals: 54, visitors: 15 },
+                { locals: 69, visitors: 15 },
+                { locals: 15, visitors: 15 },
+                { locals: 870, visitors: 75 },
+			];
+
+
+			const error = {
+                code: 403,
+                msg: 'Authorized',
+			};
+
+            const ok = true;
+
+            async function promise() {
+                return await new Promise((resolve, reject) => {
+                    if (ok) {
+                        setTimeout(() => {
+                            return resolve(scores);
+                        }, 5000);
+                    } else {
+                        reject(error);
+                    }
+                });
+            }
+
+            promise()
+                .then((response) => {
+                    response.forEach((match) => {
+                        document.body.innerHTML += `<p>${match.locals} ${match.visitors}</p>`;
+                    });
+                })
+                .catch((err) => console.table(err));
+
+            console.log(promise);
+
+
+
+        </script>
+    </body>
+</html>
