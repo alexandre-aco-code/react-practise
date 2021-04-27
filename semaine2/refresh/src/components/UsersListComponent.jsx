@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import loader from './loader.gif';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class UsersListComponent extends Component {
     state = {
@@ -43,7 +43,7 @@ class UsersListComponent extends Component {
             // sinon on affiche les  users // Une boucle
             <Fragment>
                 <ul>
-                    {loading ? <img src={loader}/> : <ul>{usersList}</ul>}
+                    {loading ? <img src={loader} alt="Chargement..."/> : <ul>{usersList}</ul>}
                     {/* {this.state.users.map(user => <li>{user.name}</li>)} */}
                 </ul>
             </Fragment>
