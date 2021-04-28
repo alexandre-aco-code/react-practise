@@ -1,0 +1,237 @@
+import React, { Component, Fragment } from "react";
+import loader from "./loader.gif";
+import { logDOM } from "@testing-library/react";
+
+class UsersListComponent extends Component {
+  state = {
+    users: [],
+    loading: true,
+  };
+
+  async componentDidMount() {
+    const url = "https://jsonplaceholder.typicode.com/users/";
+    const response = await fetch(url);
+    try {
+      if (response.status === 200) {
+        const users = await response.json();
+        setTimeout(() => {
+          this.setState({ users, loading: false });
+        }, 1000);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+
+    // fetch(url)
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    //       return res.json();
+    //     }
+    //     throw new Error("qqchose d'horrible s'est produit");
+    //   })
+    //   .then((users) =>
+    //     setTimeout(() => {
+    //       this.setState({ users, loading: false });
+    //     }, 1000)
+    //   )
+    //   .catch((err) => console.error(err.message));
+  }
+
+  render() {
+    const { users, loading } = this.state;
+
+    const usersList = users.map((user, index) => {
+      return <li key={index}>{user.name}</li>;
+    });
+
+    return (
+      // Si loading === true //
+      // On affiche un loader //
+      // sinon on affiche les  users // Une boucle
+      <Fragment>
+        {loading ? <img src={loader} alt="Loading..." /> : <ul>{usersList}</ul>}
+      </Fragment>
+    );
+  }
+}
+
+export default UsersListComponent;
+
+
+
+import { useState, useEffect } from "react";
+import "./App.css";
+// import CounterComponent from "./components/CounterComponent";
+// import UsersListComponent from "./components/UsersListComponent";
+
+const App = () => {
+  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
+
+  
+  
+  return (
+    <div className="App">
+      <div className="App-header">{/*<CounterComponent />*/}</div>
+    </div>
+  );
+};
+
+export default App;
+
+
+
+
+// Request
+const fetchUsers = async () => {
+  const url = "https://jsonplaceholder.typicode.com/users/";
+  const response = await fetch(url);
+  try {
+    if (response.status === 200) {
+      const users = await response.json();
+
+      return {
+        users,
+        loading: false,
+      };
+    }
+  } catch (err) {
+    console.error(err.message);
+  }
+  // fetch(url)
+  //   .then((res) => {
+  //     if (res.status === 200) {
+  //       return res.json();
+  //     }
+  //     throw new Error("qqchose d'horrible s'est produit");
+  //   })
+  //   .then((users) =>
+  //     setTimeout(() => {
+  //       this.setState({ users, loading: false });
+  //     }, 1000)
+  //   )
+  //   .catch((err) => console.error(err.message));
+};
+
+export { fetchUsers };
+
+
+
+
+
+
+// UsersList
+import React, { Component, Fragment } from "react";
+import loader from "./loader.gif";
+import { fetchUsers } from "../requests";
+
+class UsersListComponent extends Component {
+  state = {
+    users: [],
+    loading: false,
+  };
+
+  async componentDidMount() {
+    const { users, loading } = await fetchUsers();
+    this.setState({ users, loading });
+  }
+
+  render() {
+    const { users, loading } = this.state;
+
+    const usersList = users.map((user, index) => {
+      return (
+        <li key={index}>
+          <p>{user.name}</p>
+          <p>
+            <button onClick={() => this.toggleDetail(index)}>Détails</button>
+          </p>
+        </li>
+      );
+    });
+
+    return (
+      <Fragment>
+        {loading ? <img src={loader} alt="Loading..." /> : <ul>{usersList}</ul>}
+      </Fragment>
+    );
+  }
+}
+
+export default UsersListComponent;
+
+
+// App woith hooks
+
+import { useState, useEffect } from "react";
+import { fetchUsers } from "./requests";
+import "./App.css";
+
+const App = () => {
+  const [loading, setLoading] = useState(true); // === state = { loading: false }
+  const [users, setUsers] = useState([]);
+
+  const [count, setCount] = useState(0);
+
+  useEffect(async () => {
+    const { users, loading } = await fetchUsers();
+    setUsers(users);
+    setLoading(loading);
+  });
+
+  return (
+    <div className="App">
+      <div className="App-header">
+        {users.map((user, index) => {
+          return <p key={index}>{user.name}</p>;
+        })}
+
+        <button onClick={() => setCount(count + 1)}>Incremente</button>
+        <button onClick={() => setCount(count - 1)}>Decrementer</button>
+      </div>
+    </div>
+  );
+};
+
+export default App;
+
+
+
+
+// users with hooks
+import { useState, useEffect, Fragment } from "react";
+import { fetchUsers } from "../requests";
+
+const UsersHooksComponent = () => {
+  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+
+  useEffect(async () => {
+    const { users, loading } = await fetchUsers();
+    setUsers(users);
+    setLoading(loading);
+  });
+
+  return (
+    <Fragment>
+      {users.map((user, index) => {
+        return <p key={index}>{user.name}</p>;
+      })}
+    </Fragment>
+  );
+};
+
+export default UsersHooksComponent;
+
+
+
+
+
+
+
+
+
+
+
+
+
