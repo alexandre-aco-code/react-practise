@@ -1,0 +1,51 @@
+
+class Errors {
+    constructor() {
+        this.errors = {
+            message: '',
+        };
+    }
+
+    get() {
+        if (this.errors.message) {
+            return this.errors.message;
+        }
+    }
+
+    record(error) {
+        this.errors.message = error;
+    }
+}
+
+export default Errors;
+
+
+
+import React, { Fragment } from "react";
+
+const ShowWeather = ({ weather }) => {
+  return (
+    <Fragment>
+      {weather.weather ? (
+        <div>
+          <p>{weather.description}</p>
+          <p>{weather.timezone}</p>
+
+          {weather.weather.map((item, index) => {
+            return (
+              <div key={index}>
+                <p>{item.description}</p>
+                <img
+                  src={`http://openweathermap.org/img/wn/${item.icon}@2x.png`}
+                  alt="an icon"
+                />
+              </div>
+            );
+          })}
+        </div>
+      ) : null}
+    </Fragment>
+  );
+};
+
+export default ShowWeather;
