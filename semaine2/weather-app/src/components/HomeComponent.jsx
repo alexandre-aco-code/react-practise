@@ -15,18 +15,18 @@ const HomeComponent = () => {
     return (
         <Fragment>
             <div className="container">
-            <div className="row">
-                <div className="col-md-6 mx-auto text-center bg-primary mt-5 p-5 rounded">
-                    <WeatherComponent city={city} />
-                    <hr/>
-                    <button onClick={handleModal} type="button" className="btn btn-primary" data-toggle="modal" data-target="#locModal">
-                        Change Location
+                <div className="row">
+                    <div className="col-md-6 mx-auto text-center bg-primary mt-5 p-5 rounded">
+                        <WeatherComponent city={city} />
+                        <hr />
+                        <button onClick={handleModal} type="button" className="btn btn-primary" data-toggle="modal" data-target="#locModal">
+                            Change Location
                     </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <ModalComponent visible={modalIsVisible} setVisible={handleModal} setCity ={setCity} />
-    </Fragment>
+            <ModalComponent visible={modalIsVisible} setVisible={handleModal} setCity={setCity} />
+        </Fragment>
     )
 };
 

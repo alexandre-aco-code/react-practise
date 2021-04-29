@@ -7,15 +7,15 @@ const ModalComponent = (props) => {
     let setCity = props.setCity;
 
     const changeLoc = (e) => {
-        
+
         const form = e.target;
-        const input = form.querySelector('input').value;    
+        const input = form.querySelector('input').value;
         setCity(input);
         e.preventDefault();
     }
 
     return (
-        <div className={`modal fade ${isVisible ? "show" : ""}`} id="locModal" tabIndex="-1" role="dialog" aria-labelledby="locModalLabel" aria-hidden="true">
+        <div className={`modal fade ${isVisible ? "show" : ""}`} id="locModal" tabindex="-1" role="dialog" aria-labelledby="locModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -25,22 +25,25 @@ const ModalComponent = (props) => {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <form id="w-form" onSubmit={changeLoc}>
+                        <form id="w-form">
                             <div className="form-group">
-                                <label htmlFor="city">City</label>
-                                <input type="text" id="city" className="form-control"/>
-                                <button id="w-change-btn" type="submit" className="btn btn-primary">Save changes</button>
+                                <label for="city">City</label>
+                                <input type="text" id="city" className="form-control" />
+                            </div>
+                            <div className="form-group">
+                                <label for="state">State</label>
+                                <input type="text" id="state" className="form-control" />
                             </div>
                         </form>
                     </div>
                     <div className="modal-footer">
                         <button onClick={setVisible} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        
+                        <button id="w-change-btn" type="button" className="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>
-    )
-};
+    );
+}
 
 export default ModalComponent;

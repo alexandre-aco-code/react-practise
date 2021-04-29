@@ -40,14 +40,14 @@ function WeatherComponent(props) {
       return (
         <Fragment>
             <h1 id="w-location">{items.name}</h1>
-            <h3 className="text-dark" id="w-desc">{items.weather[0].main}</h3>
-            <h3 id="w-string">{items.weather[0].description}</h3>
-            <img id="w-icon" src={`http://openweathermap.org/img/wn/${items.weather[0].icon}@2x.png`} />
+            {/* <h3 className="text-dark" id="w-desc">{items.weather[0].main}</h3> */}
+            {/* <h3 id="w-string">{items.weather[0].description}</h3> */}
+            {/* <img id="w-icon" src={`http://openweathermap.org/img/wn/${items.weather[0].icon}@2x.png`} /> */}
             <ul id="w-details" className="list-group mt-3">
-                <li className="list-group-item">Humidité : {items.main.humidity} %</li>
+                {/* <li className="list-group-item">Humidité : {items.main.humidity} %</li>
                 <li className="list-group-item">Temperature : {items.main.temp} °C</li>
                 <li className="list-group-item">Ressenti : {items.main.feels_like} °C</li>
-                <li className="list-group-item">Vent : {items.wind.speed}km/h</li> 
+                <li className="list-group-item">Vent : {items.wind.speed}km/h</li>  */}
             </ul>
         </Fragment>
       );
