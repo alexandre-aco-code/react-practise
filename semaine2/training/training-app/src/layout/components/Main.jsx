@@ -45,9 +45,22 @@ class Main extends Component {
 
 
     render() {
+        const { users } = this.state;
+
+        const contacts = users.map(user => {
+            // return <p key={user.id}>{user.name}</p>
+            return (
+                <li key={user.id} className={'list-group-item'}>
+                    <a href="#">{user.name} | Voir +</a>
+                </li>
+            )
+        })
+
         return (
-            <div>
-                <p>test</p>
+            <div className='col-md-4'>
+                <ul className={'list-group'}>
+                    {contacts}
+                </ul>
             </div>
         )
     }
