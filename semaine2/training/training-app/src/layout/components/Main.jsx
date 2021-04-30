@@ -17,19 +17,6 @@ class Main extends Component {
     async getUsers() {
         const URL = `https://jsonplaceholder.typicode.com/users/`;
 
-        // fetch(URL)
-        //     .then(response => {
-        //         if (response.status !== 200) {
-        //             throw new Error('Something wrong happened, Please try again later');
-        //         }
-        //
-        //         return response.json();
-        //     }).then(users => {
-        //     this.setState({users});
-        // }).catch(e => {
-        //     console.error(e.message);
-        // })
-
         try {
             const response = await fetch(URL);
             if (response.status !== 200) {
@@ -45,22 +32,24 @@ class Main extends Component {
 
 
     render() {
+
         const { users } = this.state;
 
-        const contacts = users.map(user => {
-            // return <p key={user.id}>{user.name}</p>
-            return (
-                <li key={user.id} className={'list-group-item'}>
-                    <a href="#">{user.name} | Voir +</a>
-                </li>
-            )
-        })
+        const contacts = users.map((user) => {
+            return <li className={'list-group-item'} key={user.id}>
+                <a href="#">{user.name} | Voir +</a>
+            </li>
+        });
 
         return (
-            <div className='col-md-4'>
-                <ul className={'list-group'}>
-                    {contacts}
-                </ul>
+            <div className={'container'}>
+                <div className={'row'}>
+                    <div className={'col-md-4'}>
+                        <ul className={'list-group'}>
+                            {contacts}
+                        </ul>
+                    </div>
+                </div>
             </div>
         )
     }
